@@ -16,6 +16,7 @@
 		786BD2992A0768A5007A6B8E /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786BD2982A0768A5007A6B8E /* OnboardingController.swift */; };
 		7877E3B62A07714F00EBE368 /* TabbarContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877E3B52A07714F00EBE368 /* TabbarContoller.swift */; };
 		7877E3B82A07728B00EBE368 /* HomeViewCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877E3B72A07728B00EBE368 /* HomeViewCotroller.swift */; };
+		7877E3BF2A079D7600EBE368 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877E3BE2A079D7600EBE368 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		786BD2982A0768A5007A6B8E /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 		7877E3B52A07714F00EBE368 /* TabbarContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarContoller.swift; sourceTree = "<group>"; };
 		7877E3B72A07728B00EBE368 /* HomeViewCotroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCotroller.swift; sourceTree = "<group>"; };
+		7877E3BE2A079D7600EBE368 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				786BD2982A0768A5007A6B8E /* OnboardingController.swift */,
 				7877E3B52A07714F00EBE368 /* TabbarContoller.swift */,
 				7877E3B72A07728B00EBE368 /* HomeViewCotroller.swift */,
+				7877E3BE2A079D7600EBE368 /* ProfileViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				786BD2892A076007007A6B8E /* ViewController.swift in Sources */,
 				7877E3B82A07728B00EBE368 /* HomeViewCotroller.swift in Sources */,
 				786BD2852A076007007A6B8E /* AppDelegate.swift in Sources */,
+				7877E3BF2A079D7600EBE368 /* ProfileViewController.swift in Sources */,
 				7877E3B62A07714F00EBE368 /* TabbarContoller.swift in Sources */,
 				786BD2872A076007007A6B8E /* SceneDelegate.swift in Sources */,
 			);
@@ -347,7 +351,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -376,7 +380,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
