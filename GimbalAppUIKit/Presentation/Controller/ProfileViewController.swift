@@ -13,9 +13,9 @@ class ProfileViewController: UIViewController {
     
     @IBAction func profileBtn(_ sender: Any) {
         
-        let url = URL(string: "https://bijantyum.space/#/")
+        guard let url = URL(string: "https://bijantyum.space/#/") else {return}
         
-        UIApplication.shared.open(url!)
+        UIApplication.shared.open(url)
     }
     
     override func viewDidLoad() {

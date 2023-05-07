@@ -148,13 +148,30 @@
         <scene sceneID="ddg-gI-O1Y">
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" id="kyg-3c-PeK" customClass="HomeViewCotroller" customModule="GimbalAppUIKit" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="rJn-cm-wCz">
+                    <view key="view" contentMode="scaleToFill" id="rJn-cm-wCz" customClass="Home">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2N0-tl-KE7">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.5"/>
+                                <sections/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="bRX-FX-FLw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2N0-tl-KE7" firstAttribute="top" secondItem="bRX-FX-FLw" secondAttribute="top" id="Dhv-T2-5pS"/>
+                            <constraint firstItem="bRX-FX-FLw" firstAttribute="trailing" secondItem="2N0-tl-KE7" secondAttribute="trailing" id="HM1-Nf-bJQ"/>
+                            <constraint firstItem="bRX-FX-FLw" firstAttribute="bottom" secondItem="2N0-tl-KE7" secondAttribute="bottom" id="TfB-dS-Uyd"/>
+                            <constraint firstItem="2N0-tl-KE7" firstAttribute="leading" secondItem="bRX-FX-FLw" secondAttribute="leading" id="nwJ-J9-Zl7"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="wim-qr-lFB"/>
+                    <connections>
+                        <outlet property="gamesTableView" destination="2N0-tl-KE7" id="lLf-0l-7Uf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ZO-YF-gu5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -174,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zy8-Wr-a3Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1802" y="661"/>
+            <point key="canvasLocation" x="1672" y="805"/>
         </scene>
         <!--Tabbar Contoller-->
         <scene sceneID="BFT-VF-Syv">
@@ -183,6 +200,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="475-iK-0IG"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7Ji-0X-cha">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -198,7 +216,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bijan" width="128" height="128"/>
+        <image name="bijan" width="1000" height="1000"/>
         <image name="gameboy" width="952" height="816"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>

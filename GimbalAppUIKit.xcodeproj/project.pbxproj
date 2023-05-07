@@ -17,6 +17,12 @@
 		7877E3B62A07714F00EBE368 /* TabbarContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877E3B52A07714F00EBE368 /* TabbarContoller.swift */; };
 		7877E3B82A07728B00EBE368 /* HomeViewCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877E3B72A07728B00EBE368 /* HomeViewCotroller.swift */; };
 		7877E3BF2A079D7600EBE368 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877E3BE2A079D7600EBE368 /* ProfileViewController.swift */; };
+		7877E3C22A07A2EE00EBE368 /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877E3C02A07A2EE00EBE368 /* GameTableViewCell.swift */; };
+		7877E3C32A07A2EE00EBE368 /* GameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7877E3C12A07A2EE00EBE368 /* GameTableViewCell.xib */; };
+		7877E3C92A07AF5B00EBE368 /* GamesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877E3C82A07AF5B00EBE368 /* GamesModel.swift */; };
+		7877E3CB2A07AF8000EBE368 /* DatasGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877E3CA2A07AF8000EBE368 /* DatasGameModel.swift */; };
+		7877E3CD2A07AFF300EBE368 /* GameEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877E3CC2A07AFF300EBE368 /* GameEntity.swift */; };
+		7877E3CF2A07B43100EBE368 /* GamesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877E3CE2A07B43100EBE368 /* GamesRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +38,12 @@
 		7877E3B52A07714F00EBE368 /* TabbarContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarContoller.swift; sourceTree = "<group>"; };
 		7877E3B72A07728B00EBE368 /* HomeViewCotroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCotroller.swift; sourceTree = "<group>"; };
 		7877E3BE2A079D7600EBE368 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		7877E3C02A07A2EE00EBE368 /* GameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
+		7877E3C12A07A2EE00EBE368 /* GameTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameTableViewCell.xib; sourceTree = "<group>"; };
+		7877E3C82A07AF5B00EBE368 /* GamesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesModel.swift; sourceTree = "<group>"; };
+		7877E3CA2A07AF8000EBE368 /* DatasGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasGameModel.swift; sourceTree = "<group>"; };
+		7877E3CC2A07AFF300EBE368 /* GameEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEntity.swift; sourceTree = "<group>"; };
+		7877E3CE2A07B43100EBE368 /* GamesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +76,7 @@
 		786BD2832A076007007A6B8E /* GimbalAppUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				7877E3C42A07AD0F00EBE368 /* Networking */,
 				7877E3BB2A0775FC00EBE368 /* Presentation */,
 				7877E3BA2A0775E700EBE368 /* App */,
 				7877E3B92A0775D500EBE368 /* FileSystem */,
@@ -102,6 +115,7 @@
 		7877E3BC2A07760800EBE368 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7877E3C02A07A2EE00EBE368 /* GameTableViewCell.swift */,
 				786BD2882A076007007A6B8E /* ViewController.swift */,
 				786BD2982A0768A5007A6B8E /* OnboardingController.swift */,
 				7877E3B52A07714F00EBE368 /* TabbarContoller.swift */,
@@ -115,8 +129,36 @@
 			isa = PBXGroup;
 			children = (
 				786BD28A2A076007007A6B8E /* Main.storyboard */,
+				7877E3C12A07A2EE00EBE368 /* GameTableViewCell.xib */,
 			);
 			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		7877E3C42A07AD0F00EBE368 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				7877E3C72A07AF3E00EBE368 /* Repositories */,
+				7877E3C62A07AF3500EBE368 /* Models */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		7877E3C62A07AF3500EBE368 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7877E3C82A07AF5B00EBE368 /* GamesModel.swift */,
+				7877E3CA2A07AF8000EBE368 /* DatasGameModel.swift */,
+				7877E3CC2A07AFF300EBE368 /* GameEntity.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7877E3C72A07AF3E00EBE368 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				7877E3CE2A07B43100EBE368 /* GamesRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +222,7 @@
 				786BD2912A076008007A6B8E /* LaunchScreen.storyboard in Resources */,
 				786BD28E2A076008007A6B8E /* Assets.xcassets in Resources */,
 				786BD28C2A076007007A6B8E /* Main.storyboard in Resources */,
+				7877E3C32A07A2EE00EBE368 /* GameTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,12 +234,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				786BD2992A0768A5007A6B8E /* OnboardingController.swift in Sources */,
+				7877E3CF2A07B43100EBE368 /* GamesRepository.swift in Sources */,
 				786BD2892A076007007A6B8E /* ViewController.swift in Sources */,
 				7877E3B82A07728B00EBE368 /* HomeViewCotroller.swift in Sources */,
 				786BD2852A076007007A6B8E /* AppDelegate.swift in Sources */,
 				7877E3BF2A079D7600EBE368 /* ProfileViewController.swift in Sources */,
 				7877E3B62A07714F00EBE368 /* TabbarContoller.swift in Sources */,
 				786BD2872A076007007A6B8E /* SceneDelegate.swift in Sources */,
+				7877E3C22A07A2EE00EBE368 /* GameTableViewCell.swift in Sources */,
+				7877E3C92A07AF5B00EBE368 /* GamesModel.swift in Sources */,
+				7877E3CB2A07AF8000EBE368 /* DatasGameModel.swift in Sources */,
+				7877E3CD2A07AFF300EBE368 /* GameEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
