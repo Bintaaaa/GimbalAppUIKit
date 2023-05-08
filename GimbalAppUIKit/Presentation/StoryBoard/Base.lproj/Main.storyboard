@@ -177,6 +177,96 @@
             </objects>
             <point key="canvasLocation" x="1851.1450381679388" y="-45.070422535211272"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="p8T-VD-tTR">
+            <objects>
+                <viewController storyboardIdentifier="detailScreen" id="22N-ma-Qi1" customClass="DetailViewController" customModule="GimbalAppUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HYq-vt-pKJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cyberDummy" translatesAutoresizingMaskIntoConstraints="NO" id="MZB-FW-jTl">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="7Fg-di-hMG"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ena-yB-fXZ">
+                                <rect key="frame" x="36" y="271.33333333333331" width="24" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Oee-RM-RQs">
+                                <rect key="frame" x="62" y="269" width="24" height="23.666666666666629"/>
+                                <color key="tintColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="421-Mm-ys9"/>
+                                    <constraint firstAttribute="height" constant="24" id="EhA-bo-SdP"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" lineBreakMode="tailTruncation" numberOfLines="30" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNc-Pa-Rwu">
+                                <rect key="frame" x="16" y="316" width="382" height="338"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="2"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lkt-8Q-Iri">
+                                <rect key="frame" x="16" y="670" width="382" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1IQ-25-UDj"/>
+                                </constraints>
+                                <color key="tintColor" red="0.0" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Goo to web!">
+                                    <color key="baseBackgroundColor" red="0.0" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnWeb:" destination="22N-ma-Qi1" eventType="touchUpInside" id="3ib-Az-J8y"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleAspectFill" semanticContentAttribute="spatial" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="j3n-fn-Ri2">
+                                <rect key="frame" x="183" y="344" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="MtO-qu-hb8"/>
+                                    <constraint firstAttribute="width" constant="48" id="phc-eD-hkI"/>
+                                </constraints>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wwC-ns-IIZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MZB-FW-jTl" firstAttribute="baseline" secondItem="Oee-RM-RQs" secondAttribute="firstBaseline" constant="12" id="0dD-Rc-Mwh"/>
+                            <constraint firstItem="ena-yB-fXZ" firstAttribute="leading" secondItem="HYq-vt-pKJ" secondAttribute="leadingMargin" constant="16" id="2dP-6e-aTK"/>
+                            <constraint firstItem="wwC-ns-IIZ" firstAttribute="trailing" secondItem="MZB-FW-jTl" secondAttribute="trailing" id="Anl-Ll-GG0"/>
+                            <constraint firstItem="MZB-FW-jTl" firstAttribute="baseline" secondItem="ena-yB-fXZ" secondAttribute="firstBaseline" constant="12.333333333333334" symbolType="layoutAnchor" id="Fzk-TV-G6X"/>
+                            <constraint firstItem="nNc-Pa-Rwu" firstAttribute="leading" secondItem="wwC-ns-IIZ" secondAttribute="leading" constant="16" id="Mtx-VW-nmn"/>
+                            <constraint firstItem="j3n-fn-Ri2" firstAttribute="centerX" secondItem="HYq-vt-pKJ" secondAttribute="centerX" id="TeF-aZ-LMW"/>
+                            <constraint firstItem="MZB-FW-jTl" firstAttribute="top" secondItem="wwC-ns-IIZ" secondAttribute="top" id="aC5-WT-Qc6"/>
+                            <constraint firstItem="wwC-ns-IIZ" firstAttribute="trailing" secondItem="nNc-Pa-Rwu" secondAttribute="trailing" constant="16" id="aVJ-G4-PKP"/>
+                            <constraint firstItem="j3n-fn-Ri2" firstAttribute="centerY" secondItem="HYq-vt-pKJ" secondAttribute="centerY" id="det-Qb-3hc"/>
+                            <constraint firstItem="wwC-ns-IIZ" firstAttribute="trailing" secondItem="lkt-8Q-Iri" secondAttribute="trailing" constant="16" id="ef2-Wa-1WM"/>
+                            <constraint firstItem="lkt-8Q-Iri" firstAttribute="leading" secondItem="wwC-ns-IIZ" secondAttribute="leading" constant="16" id="hQw-zf-ujN"/>
+                            <constraint firstItem="lkt-8Q-Iri" firstAttribute="top" secondItem="nNc-Pa-Rwu" secondAttribute="bottom" constant="16" id="iiv-Fd-ayD"/>
+                            <constraint firstItem="nNc-Pa-Rwu" firstAttribute="top" secondItem="MZB-FW-jTl" secondAttribute="bottom" constant="16" id="rEP-zq-hlj"/>
+                            <constraint firstItem="MZB-FW-jTl" firstAttribute="leading" secondItem="wwC-ns-IIZ" secondAttribute="leading" id="scf-Nb-Lkg"/>
+                            <constraint firstItem="Oee-RM-RQs" firstAttribute="leading" secondItem="ena-yB-fXZ" secondAttribute="trailing" constant="2" id="xY8-Q4-tWb"/>
+                            <constraint firstItem="wwC-ns-IIZ" firstAttribute="bottom" secondItem="lkt-8Q-Iri" secondAttribute="bottom" constant="16" id="xy9-oa-ZsI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnStyling" destination="lkt-8Q-Iri" id="jtf-fX-TKN"/>
+                        <outlet property="descriptionDetail" destination="nNc-Pa-Rwu" id="hme-5d-QT6"/>
+                        <outlet property="detailImage" destination="MZB-FW-jTl" id="C81-SI-eyI"/>
+                        <outlet property="indicatorDetail" destination="j3n-fn-Ri2" id="6KR-ZW-Pzd"/>
+                        <outlet property="ratingDetail" destination="nNc-Pa-Rwu" id="Syl-en-6uC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tHf-7D-hJG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2686" y="-46"/>
+        </scene>
         <!--Search-->
         <scene sceneID="YfE-4v-MAN">
             <objects>
@@ -217,15 +307,20 @@
     </scenes>
     <resources>
         <image name="bijan" width="1000" height="1000"/>
+        <image name="cyberDummy" width="19" height="25.333333969116211"/>
         <image name="gameboy" width="952" height="816"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="person" catalog="system" width="128" height="121"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="green">
             <color red="0.0" green="0.74900001287460327" blue="0.76499998569488525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

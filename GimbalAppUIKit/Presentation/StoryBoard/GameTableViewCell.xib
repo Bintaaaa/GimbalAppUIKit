@@ -65,10 +65,11 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="dateReleaseTV" destination="rIT-bq-dYq" id="pDG-jx-5vO"/>
+                <outlet property="dateReleaseTV" destination="rIT-bq-dYq" id="IZW-Pt-d8N"/>
                 <outlet property="gameImageView" destination="gGv-mU-gxo" id="rKP-KN-EEF"/>
+                <outlet property="indicatorLoading" destination="IGC-XJ-vPr" id="bL2-py-rLj"/>
                 <outlet property="levelingGameTV" destination="b7Z-0l-GTd" id="eTS-dS-Yqd"/>
-                <outlet property="titleOfGameTV" destination="rIT-bq-dYq" id="J0e-2r-8vh"/>
+                <outlet property="titleOfGameTV" destination="ijh-WE-ZdO" id="Noh-f7-LLM"/>
             </connections>
             <point key="canvasLocation" x="-99" y="-40"/>
         </tableViewCell>
