@@ -158,6 +158,13 @@
                                 <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.5"/>
                                 <sections/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ELo-nb-7Kt">
+                                <rect key="frame" x="192" y="353" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="5hF-Ks-8nx"/>
+                                    <constraint firstAttribute="width" constant="30" id="v28-Qg-GLr"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bRX-FX-FLw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -165,12 +172,15 @@
                             <constraint firstItem="2N0-tl-KE7" firstAttribute="top" secondItem="bRX-FX-FLw" secondAttribute="top" id="Dhv-T2-5pS"/>
                             <constraint firstItem="bRX-FX-FLw" firstAttribute="trailing" secondItem="2N0-tl-KE7" secondAttribute="trailing" id="HM1-Nf-bJQ"/>
                             <constraint firstItem="bRX-FX-FLw" firstAttribute="bottom" secondItem="2N0-tl-KE7" secondAttribute="bottom" id="TfB-dS-Uyd"/>
+                            <constraint firstItem="ELo-nb-7Kt" firstAttribute="centerY" secondItem="rJn-cm-wCz" secondAttribute="centerY" id="kcx-lL-0W7"/>
                             <constraint firstItem="2N0-tl-KE7" firstAttribute="leading" secondItem="bRX-FX-FLw" secondAttribute="leading" id="nwJ-J9-Zl7"/>
+                            <constraint firstItem="ELo-nb-7Kt" firstAttribute="centerX" secondItem="rJn-cm-wCz" secondAttribute="centerX" id="uEA-Bc-Pxa"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="wim-qr-lFB"/>
                     <connections>
                         <outlet property="gamesTableView" destination="2N0-tl-KE7" id="lLf-0l-7Uf"/>
+                        <outlet property="indicatorHome" destination="ELo-nb-7Kt" id="7C2-xd-r0N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ZO-YF-gu5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -261,6 +271,7 @@
                         <outlet property="detailImage" destination="MZB-FW-jTl" id="C81-SI-eyI"/>
                         <outlet property="indicatorDetail" destination="j3n-fn-Ri2" id="6KR-ZW-Pzd"/>
                         <outlet property="ratingDetail" destination="nNc-Pa-Rwu" id="Syl-en-6uC"/>
+                        <outlet property="starImage" destination="Oee-RM-RQs" id="8no-s7-bV7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tHf-7D-hJG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

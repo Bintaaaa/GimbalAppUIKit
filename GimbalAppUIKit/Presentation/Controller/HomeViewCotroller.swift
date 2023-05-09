@@ -22,17 +22,23 @@ class HomeViewCotroller: UIViewController {
         
     }
     
+    @IBOutlet var indicatorHome: UIActivityIndicatorView!
     override func viewWillAppear(_ animated: Bool) {
         Task {await getGames()}
     }
     
     func getGames() async{
         let repository = GamesRepository()
-        
+        startLoading()
         do{
+           
+
             games = try await repository.getGames()
             gamesTableView.reloadData()
+            stopLoading()
+           
         }catch{
+     
             fatalError("Error: connection failed.")
         }
     }
@@ -53,6 +59,16 @@ class HomeViewCotroller: UIViewController {
             }
         }
         
+    }
+    
+    func startLoading() {
+        indicatorHome.startAnimating()
+        indicatorHome.isHidden = false
+    }
+
+    func stopLoading() {
+        indicatorHome.stopAnimating()
+        indicatorHome.isHidden = true
     }
 }
 
@@ -83,10 +99,13 @@ extension HomeViewCotroller: UITableViewDataSource, UITableViewDelegate {
            
             
             if game.state == .initial{
+                print("initial table")
                 cell.indicatorLoading.isHidden = false
                 cell.indicatorLoading.startAnimating()
                 startDownload(gamesEntity: game, indexPath: indexPath)
             }else{
+               
+
                 cell.indicatorLoading.stopAnimating()
                 cell.indicatorLoading.isHidden = true
             }
