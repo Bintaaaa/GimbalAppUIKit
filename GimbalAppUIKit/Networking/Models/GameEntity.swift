@@ -21,7 +21,7 @@ class GameEntity{
     
     var image: UIImage?
     var state: DownloadImageState = .initial
-   
+    
     
     init(
         id: Int, title: String, imagePath: URL, level: Int, releaseDate: Date

@@ -40,7 +40,7 @@ struct DetailGame: Codable{
         
         let path = try container.decode(String.self, forKey: .imagePath )
         imagePath = URL(string: path)!
-       
+        
         
         let urlWeb = try container.decode(String.self, forKey: .website)
         

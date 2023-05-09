@@ -17,7 +17,7 @@ class DetailViewController: UIViewController {
     var id: Int? = nil
     
     private var detail: DetailGameEntity?
-
+    
     @IBOutlet var indicatorDetail: UIActivityIndicatorView!
     @IBAction func btnWeb(_ sender: Any) {
         let url: URL = detail!.website
@@ -33,9 +33,8 @@ class DetailViewController: UIViewController {
                 ratingDetail.text = "\(item.rating)"
                 descriptionDetail.text = item.description
                 
-               
+                
                 if item.state == .initial{
-                    print("here initial")
                     startDownloadImage(detailGameEntity: detail!)
                     detailImage.isHidden = true
                     descriptionDetail.isHidden = true
@@ -46,16 +45,16 @@ class DetailViewController: UIViewController {
             }
         }
         
-
+        
     }
     
-
+    
     func getDetailGames() async{
         let repository = GamesRepository()
         do{
             startLoading()
-           detail = try await repository.getDetail(id: id!)
-           stopLoading()
+            detail = try await repository.getDetail(id: id!)
+            stopLoading()
         }catch{
             stopLoading()
             fatalError("Error: connection failed.")
@@ -94,7 +93,7 @@ class DetailViewController: UIViewController {
         ratingDetail.isHidden = true
         starImage.isHidden = true
     }
-
+    
     func stopLoading() {
         indicatorDetail.stopAnimating()
         indicatorDetail.isHidden = true
@@ -105,6 +104,6 @@ class DetailViewController: UIViewController {
         starImage.isHidden = false
     }
     
-
-
+    
+    
 }

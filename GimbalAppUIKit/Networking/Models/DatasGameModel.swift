@@ -28,16 +28,16 @@ struct DatasGameModel: Codable{
         id = try container.decode(Int.self, forKey: .id)
         
         name = try container.decode(String.self, forKey: .name)
-
+        
         let dateString = try container.decode(String.self, forKey: .released)
-
+        
         let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            released = dateFormatter.date(from: dateString)!
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        released = dateFormatter.date(from: dateString)!
         
         let path = try container.decode(String.self, forKey: .imagePath )
         
-       imagePath = URL(string: path)!
+        imagePath = URL(string: path)!
         
         ratingTop = try container.decode(Int.self, forKey: .ratingTop)
     }

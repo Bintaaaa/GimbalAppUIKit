@@ -281,14 +281,40 @@
         <!--Search-->
         <scene sceneID="YfE-4v-MAN">
             <objects>
-                <viewController id="7oE-hL-owX" sceneMemberID="viewController">
+                <viewController id="7oE-hL-owX" customClass="SearchViewController" customModule="GimbalAppUIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MMt-u9-zUr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="TxL-ze-AhI">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="7oE-hL-owX" id="Mz7-L9-FHf"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="X8u-Dj-gAL">
+                                <rect key="frame" x="0.0" y="56" width="414" height="631"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="4RH-0C-Rkm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4RH-0C-Rkm" firstAttribute="trailing" secondItem="X8u-Dj-gAL" secondAttribute="trailing" id="8ZK-Sg-hjb"/>
+                            <constraint firstItem="TxL-ze-AhI" firstAttribute="top" secondItem="4RH-0C-Rkm" secondAttribute="top" id="B4Q-yk-kK4"/>
+                            <constraint firstAttribute="trailing" secondItem="TxL-ze-AhI" secondAttribute="trailing" id="QQD-UC-Rki"/>
+                            <constraint firstItem="4RH-0C-Rkm" firstAttribute="bottom" secondItem="X8u-Dj-gAL" secondAttribute="bottom" id="TH5-RB-MWv"/>
+                            <constraint firstItem="TxL-ze-AhI" firstAttribute="leading" secondItem="4RH-0C-Rkm" secondAttribute="leading" id="XLQ-fQ-XpW"/>
+                            <constraint firstItem="X8u-Dj-gAL" firstAttribute="leading" secondItem="4RH-0C-Rkm" secondAttribute="leading" id="eHh-hL-Jj9"/>
+                            <constraint firstItem="X8u-Dj-gAL" firstAttribute="top" secondItem="TxL-ze-AhI" secondAttribute="bottom" id="eIA-mf-8AR"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="2Ti-ew-GMG"/>
+                    <connections>
+                        <outlet property="searchTableView" destination="X8u-Dj-gAL" id="PZM-VU-bjV"/>
+                        <outlet property="searchView" destination="TxL-ze-AhI" id="V6U-5h-sHY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zy8-Wr-a3Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

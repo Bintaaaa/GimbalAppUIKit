@@ -8,16 +8,16 @@
 import UIKit
 
 class HomeViewCotroller: UIViewController {
-
+    
     @IBOutlet var gamesTableView: UITableView!
     
     private var games: [GameEntity] = []
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         gamesTableView.delegate = self
         gamesTableView.dataSource = self
-       
+        
         gamesTableView.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "GameCell")
         
     }
@@ -31,14 +31,12 @@ class HomeViewCotroller: UIViewController {
         let repository = GamesRepository()
         startLoading()
         do{
-           
-
             games = try await repository.getGames()
             gamesTableView.reloadData()
             stopLoading()
-           
+            
         }catch{
-     
+            
             fatalError("Error: connection failed.")
         }
     }
@@ -65,7 +63,7 @@ class HomeViewCotroller: UIViewController {
         indicatorHome.startAnimating()
         indicatorHome.isHidden = false
     }
-
+    
     func stopLoading() {
         indicatorHome.stopAnimating()
         indicatorHome.isHidden = true
@@ -74,15 +72,7 @@ class HomeViewCotroller: UIViewController {
 
 
 extension HomeViewCotroller: UITableViewDataSource, UITableViewDelegate {
-
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 116
-    }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 116
-    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return games.count
     }
@@ -90,22 +80,21 @@ extension HomeViewCotroller: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as? GameTableViewCell{
             let game = games[indexPath.row]
-           
+            
             
             cell.titleOfGameTV.text = game.title
             cell.dateReleaseTV.text = "\(game.releseDate)"
             cell.levelingGameTV.text = "#\(game.level) Top 2023"
             cell.gameImageView.image = game.image
-           
+            
             
             if game.state == .initial{
-                print("initial table")
                 cell.indicatorLoading.isHidden = false
                 cell.indicatorLoading.startAnimating()
                 startDownload(gamesEntity: game, indexPath: indexPath)
             }else{
-               
-
+                
+                
                 cell.indicatorLoading.stopAnimating()
                 cell.indicatorLoading.isHidden = true
             }
@@ -120,7 +109,7 @@ extension HomeViewCotroller: UITableViewDataSource, UITableViewDelegate {
         let detailController = mainStoryBoard.instantiateViewController(withIdentifier: "detailScreen") as! DetailViewController
         let game = games[indexPath.row]
         
-       
+        
         detailController.id = game.id
         detailController.title = game.title
         

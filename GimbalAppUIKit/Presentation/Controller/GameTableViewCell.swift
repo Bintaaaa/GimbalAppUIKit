@@ -8,7 +8,7 @@
 import UIKit
 
 class GameTableViewCell: UITableViewCell {
-
+    
     @IBOutlet var indicatorLoading: UIActivityIndicatorView!
     @IBOutlet var levelingGameTV: UILabel!
     @IBOutlet var dateReleaseTV: UILabel!
@@ -17,17 +17,9 @@ class GameTableViewCell: UITableViewCell {
     @IBOutlet var indicatorCell: UIActivityIndicatorView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         stylingImage()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-print("test")
-        
-    }
     
-
     
     
     func stylingImage(){
