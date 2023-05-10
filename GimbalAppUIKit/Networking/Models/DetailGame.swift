@@ -8,21 +8,23 @@
 import Foundation
 
 struct DetailGame: Codable{
-    let name: String
-    let description: String
-    let released: Date
-    let imagePath: URL
-    let website: URL
-    let rating: Double
+    let name: String?
+    let description: String?
+    let released: Date?
+    let imagePath: URL?
+    let website: URL?
+    let rating: Double?
+    let level: Int?
     
     
     enum CodingKeys: String, CodingKey {
         case name
-        case description
+        case description = "description_raw"
         case released
         case imagePath = "background_image"
         case website
         case rating
+        case level = "rating_top"
     }
     
     init(from decoder: Decoder) throws {
@@ -44,8 +46,9 @@ struct DetailGame: Codable{
         
         let urlWeb = try container.decode(String.self, forKey: .website)
         
-        website = URL(string: urlWeb)!
+        website = URL(string: urlWeb) ?? URL(string: "https://bijantyum.space/")!
         
         rating = try container.decode(Double.self, forKey: .rating)
+        level = try container.decode(Int.self, forKey: .level)
     }
 }

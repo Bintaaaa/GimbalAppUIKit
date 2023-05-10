@@ -13,11 +13,11 @@ enum DownloadImageState{ case initial, hasData, error }
 
 
 class GameEntity{
-    let id: Int
-    let title: String
-    let releseDate: Date
-    let imagePath: URL
-    let level: Int
+    let id: Int?
+    let title: String?
+    let releseDate: Date?
+    let level: Int?
+    let imagePath: URL?
     
     var image: UIImage?
     var state: DownloadImageState = .initial

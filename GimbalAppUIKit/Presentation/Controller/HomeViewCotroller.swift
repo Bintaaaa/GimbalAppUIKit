@@ -46,7 +46,7 @@ class HomeViewCotroller: UIViewController {
         if gamesEntity.state == .initial{
             Task{
                 do{
-                    let image = try await imageDownload.downloadImage(url: gamesEntity.imagePath)
+                    let image = try await imageDownload.downloadImage(url: gamesEntity.imagePath!)
                     gamesEntity.state = .hasData
                     gamesEntity.image = image
                     self.gamesTableView.reloadRows(at: [indexPath], with: .automatic)
@@ -83,8 +83,8 @@ extension HomeViewCotroller: UITableViewDataSource, UITableViewDelegate {
             
             
             cell.titleOfGameTV.text = game.title
-            cell.dateReleaseTV.text = "\(game.releseDate)"
-            cell.levelingGameTV.text = "#\(game.level) Top 2023"
+            cell.dateReleaseTV.text = "\(game.releseDate!)"
+            cell.levelingGameTV.text = "#\(game.level!) Top 2023"
             cell.gameImageView.image = game.image
             
             

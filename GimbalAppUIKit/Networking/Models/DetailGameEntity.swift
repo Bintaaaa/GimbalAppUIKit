@@ -10,24 +10,27 @@ import UIKit
 
 enum DetailGameState {case initial, hasData, error}
 class DetailGameEntity{
-    let name: String
-    let description: String
-    let released: Date
-    let imagePath: URL
-    let website: URL
-    let rating: Double
+    let name: String?
+    let description: String?
+    let released: Date?
+    let imagePath: URL?
+    let website: URL?
+    let rating: Double?
+    let level: Int?
+    
     
     
     var image: UIImage?
     var state: DetailGameState = .initial
     
-    init(name: String, description: String, released: Date, imagePath: URL, website: URL, rating: Double) {
+    init(name: String, description: String, released: Date, imagePath: URL, website: URL, rating: Double, level: Int) {
         self.name = name
         self.description = description
         self.released = released
         self.imagePath = imagePath
         self.website = website
         self.rating = rating
+        self.level =  level
     }
     
 }

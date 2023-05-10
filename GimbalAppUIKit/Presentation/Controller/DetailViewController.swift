@@ -18,9 +18,11 @@ class DetailViewController: UIViewController {
     
     private var detail: DetailGameEntity?
     
+    @IBOutlet var titleGamesLabel: UILabel!
+    @IBOutlet var levelGames: UILabel!
     @IBOutlet var indicatorDetail: UIActivityIndicatorView!
     @IBAction func btnWeb(_ sender: Any) {
-        let url: URL = detail!.website
+        let url: URL = detail?.website ?? URL(string: "https://bijantyum.space/")!
         UIApplication.shared.open(url)
     }
     
@@ -30,17 +32,14 @@ class DetailViewController: UIViewController {
         Task{
             await getDetailGames()
             if let item = detail {
-                ratingDetail.text = "\(item.rating)"
+                ratingDetail.text = String(describing: item.rating)
                 descriptionDetail.text = item.description
+                titleGamesLabel.text = item.name
+                levelGames.text = "#\(String(describing: item.level!)) Top Games"
                 
                 
                 if item.state == .initial{
                     startDownloadImage(detailGameEntity: detail!)
-                    detailImage.isHidden = true
-                    descriptionDetail.isHidden = true
-                    starImage.isHidden = true
-                    ratingDetail.isHidden = true
-                    btnStyling.isHidden = true
                 }
             }
         }
@@ -65,15 +64,10 @@ class DetailViewController: UIViewController {
         let imageDownloader = ImageDownloader()
         Task{
             do{
-                let result = try await  imageDownloader.downloadImage(url: detailGameEntity.imagePath)
+                let result = try await  imageDownloader.downloadImage(url: (detailGameEntity.imagePath)!)
                 detailGameEntity.state = .hasData
                 DispatchQueue.main.async {
                     self.detailImage.image = result
-                    self.detailImage.isHidden = false
-                    self.descriptionDetail.isHidden = false
-                    self.starImage.isHidden = false
-                    self.ratingDetail.isHidden = false
-                    self.btnStyling.isHidden = false
                 }
             }
             catch{

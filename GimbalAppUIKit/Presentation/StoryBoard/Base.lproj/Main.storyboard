@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -215,8 +214,8 @@
                                     <constraint firstAttribute="height" constant="24" id="EhA-bo-SdP"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" lineBreakMode="tailTruncation" numberOfLines="30" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNc-Pa-Rwu">
-                                <rect key="frame" x="16" y="316" width="382" height="338"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" lineBreakMode="tailTruncation" numberOfLines="25" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNc-Pa-Rwu">
+                                <rect key="frame" x="16" y="400" width="382" height="254"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -243,24 +242,42 @@
                                     <constraint firstAttribute="width" constant="48" id="phc-eD-hkI"/>
                                 </constraints>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KmX-cf-2uU">
+                                <rect key="frame" x="15.999999999999996" y="316" width="59.666666666666657" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gsq-iu-dIL">
+                                <rect key="frame" x="15.999999999999996" y="353" width="42.666666666666657" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <color key="textColor" systemColor="systemMintColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wwC-ns-IIZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="MZB-FW-jTl" firstAttribute="baseline" secondItem="Oee-RM-RQs" secondAttribute="firstBaseline" constant="12" id="0dD-Rc-Mwh"/>
                             <constraint firstItem="ena-yB-fXZ" firstAttribute="leading" secondItem="HYq-vt-pKJ" secondAttribute="leadingMargin" constant="16" id="2dP-6e-aTK"/>
+                            <constraint firstItem="wwC-ns-IIZ" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KmX-cf-2uU" secondAttribute="trailing" constant="16" id="4bC-gz-MsJ"/>
+                            <constraint firstItem="wwC-ns-IIZ" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Gsq-iu-dIL" secondAttribute="trailing" constant="16" id="53o-68-6W2"/>
                             <constraint firstItem="wwC-ns-IIZ" firstAttribute="trailing" secondItem="MZB-FW-jTl" secondAttribute="trailing" id="Anl-Ll-GG0"/>
+                            <constraint firstItem="Gsq-iu-dIL" firstAttribute="top" secondItem="KmX-cf-2uU" secondAttribute="bottom" constant="8" id="CvR-b0-jMr"/>
                             <constraint firstItem="MZB-FW-jTl" firstAttribute="baseline" secondItem="ena-yB-fXZ" secondAttribute="firstBaseline" constant="12.333333333333334" symbolType="layoutAnchor" id="Fzk-TV-G6X"/>
                             <constraint firstItem="nNc-Pa-Rwu" firstAttribute="leading" secondItem="wwC-ns-IIZ" secondAttribute="leading" constant="16" id="Mtx-VW-nmn"/>
+                            <constraint firstItem="Gsq-iu-dIL" firstAttribute="leading" secondItem="wwC-ns-IIZ" secondAttribute="leading" constant="16" id="OT9-Lv-KEj"/>
                             <constraint firstItem="j3n-fn-Ri2" firstAttribute="centerX" secondItem="HYq-vt-pKJ" secondAttribute="centerX" id="TeF-aZ-LMW"/>
+                            <constraint firstItem="KmX-cf-2uU" firstAttribute="top" secondItem="MZB-FW-jTl" secondAttribute="bottom" constant="16" id="X8v-tl-gQE"/>
+                            <constraint firstItem="nNc-Pa-Rwu" firstAttribute="top" secondItem="j3n-fn-Ri2" secondAttribute="bottom" constant="8" id="XG7-uW-a9Q"/>
                             <constraint firstItem="MZB-FW-jTl" firstAttribute="top" secondItem="wwC-ns-IIZ" secondAttribute="top" id="aC5-WT-Qc6"/>
                             <constraint firstItem="wwC-ns-IIZ" firstAttribute="trailing" secondItem="nNc-Pa-Rwu" secondAttribute="trailing" constant="16" id="aVJ-G4-PKP"/>
                             <constraint firstItem="j3n-fn-Ri2" firstAttribute="centerY" secondItem="HYq-vt-pKJ" secondAttribute="centerY" id="det-Qb-3hc"/>
                             <constraint firstItem="wwC-ns-IIZ" firstAttribute="trailing" secondItem="lkt-8Q-Iri" secondAttribute="trailing" constant="16" id="ef2-Wa-1WM"/>
                             <constraint firstItem="lkt-8Q-Iri" firstAttribute="leading" secondItem="wwC-ns-IIZ" secondAttribute="leading" constant="16" id="hQw-zf-ujN"/>
                             <constraint firstItem="lkt-8Q-Iri" firstAttribute="top" secondItem="nNc-Pa-Rwu" secondAttribute="bottom" constant="16" id="iiv-Fd-ayD"/>
-                            <constraint firstItem="nNc-Pa-Rwu" firstAttribute="top" secondItem="MZB-FW-jTl" secondAttribute="bottom" constant="16" id="rEP-zq-hlj"/>
                             <constraint firstItem="MZB-FW-jTl" firstAttribute="leading" secondItem="wwC-ns-IIZ" secondAttribute="leading" id="scf-Nb-Lkg"/>
+                            <constraint firstItem="KmX-cf-2uU" firstAttribute="leading" secondItem="wwC-ns-IIZ" secondAttribute="leading" constant="16" id="v4d-0U-pyB"/>
                             <constraint firstItem="Oee-RM-RQs" firstAttribute="leading" secondItem="ena-yB-fXZ" secondAttribute="trailing" constant="2" id="xY8-Q4-tWb"/>
                             <constraint firstItem="wwC-ns-IIZ" firstAttribute="bottom" secondItem="lkt-8Q-Iri" secondAttribute="bottom" constant="16" id="xy9-oa-ZsI"/>
                         </constraints>
@@ -270,8 +287,10 @@
                         <outlet property="descriptionDetail" destination="nNc-Pa-Rwu" id="hme-5d-QT6"/>
                         <outlet property="detailImage" destination="MZB-FW-jTl" id="C81-SI-eyI"/>
                         <outlet property="indicatorDetail" destination="j3n-fn-Ri2" id="6KR-ZW-Pzd"/>
+                        <outlet property="levelGames" destination="Gsq-iu-dIL" id="28K-01-s2Z"/>
                         <outlet property="ratingDetail" destination="nNc-Pa-Rwu" id="Syl-en-6uC"/>
                         <outlet property="starImage" destination="Oee-RM-RQs" id="8no-s7-bV7"/>
+                        <outlet property="titleGamesLabel" destination="KmX-cf-2uU" id="0Tn-jR-1by"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tHf-7D-hJG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -355,6 +374,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

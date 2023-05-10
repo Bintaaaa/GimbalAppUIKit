@@ -36,8 +36,8 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate{
         if let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as? GameTableViewCell{
             let game = games[indexPath.row]
             cell.titleOfGameTV.text = game.title
-            cell.dateReleaseTV.text = "\(game.releseDate)"
-            cell.levelingGameTV.text = "#\(game.level) Top 2023"
+            cell.dateReleaseTV.text = "\(game.releseDate!)"
+            cell.levelingGameTV.text = "#\(game.level!) Top 2023"
             cell.gameImageView.image = game.image
             
             
@@ -76,7 +76,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate{
         if gamesEntity.state == .initial{
             Task{
                 do{
-                    let image = try await imageDownload.downloadImage(url: gamesEntity.imagePath)
+                    let image = try await imageDownload.downloadImage(url: gamesEntity.imagePath!)
                     gamesEntity.state = .hasData
                     gamesEntity.image = image
                     self.searchTableView.reloadRows(at: [indexPath], with: .automatic)
@@ -94,9 +94,9 @@ extension SearchViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if !searchText.isEmpty {
         
-            search = searchFilter.filter({$0.description.contains(searchText)})
-           
+        search = searchText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
             Task{
+                
                 await getGames()
             }
         }
@@ -107,10 +107,14 @@ extension SearchViewController: UISearchBarDelegate{
     func getGames() async {
         let respository =  GamesRepository()
         do{
+            self.searchTableView.reloadData()
             games = try await respository.getGames(query: search)
         }catch {
-            fatalError("Error: connection failed.")
+            let alert = UIAlertController(title: "Error", message: "Failed to load games. Please check your internet connection and try again.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    present(alert, animated: true, completion: nil)
+                    print("Error: connection failed. \(error.localizedDescription)")
         }
-        self.searchTableView.reloadData()
+   
     }
 }

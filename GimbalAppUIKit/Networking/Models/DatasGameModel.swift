@@ -9,10 +9,10 @@ import Foundation
 
 struct DatasGameModel: Codable{
     let id: Int
-    let name: String
-    let released: Date
-    let imagePath: URL
-    let ratingTop: Int
+    let name: String?
+    let released: Date?
+    let imagePath: URL?
+    let ratingTop: Int?
     
     enum CodingKeys: String, CodingKey{
         case id

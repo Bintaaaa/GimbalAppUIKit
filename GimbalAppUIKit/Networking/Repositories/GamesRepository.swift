@@ -84,10 +84,10 @@ extension GamesRepository {
         input dataGamesModel: [DatasGameModel]
     ) -> [GameEntity] {
         return dataGamesModel.map { result in
-            return GameEntity(id: result.id, title: result.name, imagePath: result.imagePath, level: result.ratingTop, releaseDate: result.released)
+            return GameEntity(id: result.id, title: result.name!, imagePath: result.imagePath!, level: result.ratingTop!, releaseDate: result.released!)
         }
     }
     fileprivate func detailGameMapper(input detailGame: DetailGame) -> DetailGameEntity{
-        return DetailGameEntity(name: detailGame.name, description: detailGame.description, released: detailGame.released, imagePath: detailGame.imagePath, website: detailGame.website, rating: detailGame.rating)
+        return DetailGameEntity(name: detailGame.name!, description: detailGame.description!, released: detailGame.released!, imagePath: detailGame.imagePath!, website: detailGame.website!, rating: detailGame.rating!, level: detailGame.level!)
     }
 }
