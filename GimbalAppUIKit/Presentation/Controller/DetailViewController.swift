@@ -31,15 +31,17 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         Task{
             await getDetailGames()
-            if let item = detail {
-                ratingDetail.text = String(describing: item.rating)
-                descriptionDetail.text = item.description
-                titleGamesLabel.text = item.name
-                levelGames.text = "#\(String(describing: item.level!)) Top Games"
-                
-                
-                if item.state == .initial{
-                    startDownloadImage(detailGameEntity: detail!)
+            if indicatorDetail.isHidden {
+                if let item = detail {
+                    ratingDetail.text = String(describing: item.rating)
+                    descriptionDetail.text = item.description
+                    titleGamesLabel.text = item.name
+                    levelGames.text = "#\(String(describing: item.level!)) Top Games"
+                    
+                    
+                    if item.state == .initial{
+                        startDownloadImage(detailGameEntity: detail!)
+                    }
                 }
             }
         }

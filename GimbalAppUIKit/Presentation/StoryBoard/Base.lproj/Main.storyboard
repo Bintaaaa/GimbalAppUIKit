@@ -3,6 +3,7 @@
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -134,7 +135,15 @@
                             <constraint firstItem="k9s-Tn-5fm" firstAttribute="trailing" secondItem="2bO-13-WjI" secondAttribute="trailing" constant="16" id="ubE-se-Scw"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" id="2Da-Zo-jsJ"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" id="2Da-Zo-jsJ">
+                        <imageReference key="selectedImage" image="person.fill" catalog="system" renderingMode="hierarchical">
+                            <hierarchicalColors>
+                                <color red="0.0" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color systemColor="secondaryLabelColor"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </tabBarItem>
                     <connections>
                         <outlet property="profileImageView" destination="4Sd-Dn-4WJ" id="E9j-Pr-Qne"/>
                     </connections>
@@ -147,7 +156,7 @@
         <scene sceneID="ddg-gI-O1Y">
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" id="kyg-3c-PeK" customClass="HomeViewCotroller" customModule="GimbalAppUIKit" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="rJn-cm-wCz" customClass="Home">
+                    <view key="view" contentMode="scaleToFill" id="rJn-cm-wCz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -176,7 +185,16 @@
                             <constraint firstItem="ELo-nb-7Kt" firstAttribute="centerX" secondItem="rJn-cm-wCz" secondAttribute="centerX" id="uEA-Bc-Pxa"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="wim-qr-lFB"/>
+                    <tabBarItem key="tabBarItem" title="Home" id="wim-qr-lFB">
+                        <imageReference key="image" image="house" catalog="system"/>
+                        <imageReference key="selectedImage" image="house.fill" catalog="system" renderingMode="hierarchical">
+                            <hierarchicalColors>
+                                <color name="green"/>
+                                <color systemColor="secondaryLabelColor"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </tabBarItem>
                     <connections>
                         <outlet property="gamesTableView" destination="2N0-tl-KE7" id="lLf-0l-7Uf"/>
                         <outlet property="indicatorHome" destination="ELo-nb-7Kt" id="7C2-xd-r0N"/>
@@ -254,19 +272,28 @@
                                 <color key="textColor" systemColor="systemMintColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wGs-nw-4QA">
+                                <rect key="frame" x="350" y="318" width="48" height="45"/>
+                                <color key="tintColor" red="0.60662698749999999" green="0.10849789529999999" blue="0.12417001279999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="4S6-MY-NZ0"/>
+                                    <constraint firstAttribute="width" constant="48" id="awi-pc-lw8"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wwC-ns-IIZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="MZB-FW-jTl" firstAttribute="baseline" secondItem="Oee-RM-RQs" secondAttribute="firstBaseline" constant="12" id="0dD-Rc-Mwh"/>
                             <constraint firstItem="ena-yB-fXZ" firstAttribute="leading" secondItem="HYq-vt-pKJ" secondAttribute="leadingMargin" constant="16" id="2dP-6e-aTK"/>
-                            <constraint firstItem="wwC-ns-IIZ" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KmX-cf-2uU" secondAttribute="trailing" constant="16" id="4bC-gz-MsJ"/>
                             <constraint firstItem="wwC-ns-IIZ" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Gsq-iu-dIL" secondAttribute="trailing" constant="16" id="53o-68-6W2"/>
+                            <constraint firstItem="wGs-nw-4QA" firstAttribute="top" secondItem="MZB-FW-jTl" secondAttribute="bottom" constant="16" id="78c-cC-jd5"/>
                             <constraint firstItem="wwC-ns-IIZ" firstAttribute="trailing" secondItem="MZB-FW-jTl" secondAttribute="trailing" id="Anl-Ll-GG0"/>
                             <constraint firstItem="Gsq-iu-dIL" firstAttribute="top" secondItem="KmX-cf-2uU" secondAttribute="bottom" constant="8" id="CvR-b0-jMr"/>
                             <constraint firstItem="MZB-FW-jTl" firstAttribute="baseline" secondItem="ena-yB-fXZ" secondAttribute="firstBaseline" constant="12.333333333333334" symbolType="layoutAnchor" id="Fzk-TV-G6X"/>
                             <constraint firstItem="nNc-Pa-Rwu" firstAttribute="leading" secondItem="wwC-ns-IIZ" secondAttribute="leading" constant="16" id="Mtx-VW-nmn"/>
                             <constraint firstItem="Gsq-iu-dIL" firstAttribute="leading" secondItem="wwC-ns-IIZ" secondAttribute="leading" constant="16" id="OT9-Lv-KEj"/>
+                            <constraint firstAttribute="trailing" secondItem="wGs-nw-4QA" secondAttribute="trailing" constant="16" id="QBY-2Z-Lpw"/>
                             <constraint firstItem="j3n-fn-Ri2" firstAttribute="centerX" secondItem="HYq-vt-pKJ" secondAttribute="centerX" id="TeF-aZ-LMW"/>
                             <constraint firstItem="KmX-cf-2uU" firstAttribute="top" secondItem="MZB-FW-jTl" secondAttribute="bottom" constant="16" id="X8v-tl-gQE"/>
                             <constraint firstItem="nNc-Pa-Rwu" firstAttribute="top" secondItem="j3n-fn-Ri2" secondAttribute="bottom" constant="8" id="XG7-uW-a9Q"/>
@@ -276,6 +303,7 @@
                             <constraint firstItem="wwC-ns-IIZ" firstAttribute="trailing" secondItem="lkt-8Q-Iri" secondAttribute="trailing" constant="16" id="ef2-Wa-1WM"/>
                             <constraint firstItem="lkt-8Q-Iri" firstAttribute="leading" secondItem="wwC-ns-IIZ" secondAttribute="leading" constant="16" id="hQw-zf-ujN"/>
                             <constraint firstItem="lkt-8Q-Iri" firstAttribute="top" secondItem="nNc-Pa-Rwu" secondAttribute="bottom" constant="16" id="iiv-Fd-ayD"/>
+                            <constraint firstItem="wGs-nw-4QA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KmX-cf-2uU" secondAttribute="trailing" constant="16" id="oME-dy-ndO"/>
                             <constraint firstItem="MZB-FW-jTl" firstAttribute="leading" secondItem="wwC-ns-IIZ" secondAttribute="leading" id="scf-Nb-Lkg"/>
                             <constraint firstItem="KmX-cf-2uU" firstAttribute="leading" secondItem="wwC-ns-IIZ" secondAttribute="leading" constant="16" id="v4d-0U-pyB"/>
                             <constraint firstItem="Oee-RM-RQs" firstAttribute="leading" secondItem="ena-yB-fXZ" secondAttribute="trailing" constant="2" id="xY8-Q4-tWb"/>
@@ -296,6 +324,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tHf-7D-hJG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2686" y="-46"/>
+        </scene>
+        <!--Favorite-->
+        <scene sceneID="nnx-YO-u42">
+            <objects>
+                <viewController id="xtM-BR-eMq" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vyL-tN-TdR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="2eE-NQ-ePA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Favorite" image="heart" catalog="system" id="9OK-tN-dGd">
+                        <imageReference key="selectedImage" image="heart.fill" catalog="system" renderingMode="hierarchical">
+                            <hierarchicalColors>
+                                <color red="0.0" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color systemColor="secondaryLabelColor"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1X8-WZ-eeG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="471" y="881"/>
         </scene>
         <!--Search-->
         <scene sceneID="YfE-4v-MAN">
@@ -329,7 +381,15 @@
                             <constraint firstItem="X8u-Dj-gAL" firstAttribute="top" secondItem="TxL-ze-AhI" secondAttribute="bottom" id="eIA-mf-8AR"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="2Ti-ew-GMG"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="2Ti-ew-GMG">
+                        <imageReference key="selectedImage" image="magnifyingglass" catalog="system" renderingMode="hierarchical">
+                            <hierarchicalColors>
+                                <color red="0.0" green="0.74901960779999999" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color systemColor="secondaryLabelColor"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </tabBarItem>
                     <connections>
                         <outlet property="searchTableView" destination="X8u-Dj-gAL" id="PZM-VU-bjV"/>
                         <outlet property="searchView" destination="TxL-ze-AhI" id="V6U-5h-sHY"/>
@@ -354,6 +414,7 @@
                         <segue destination="kyg-3c-PeK" kind="relationship" relationship="viewControllers" id="XX6-k8-fGA"/>
                         <segue destination="7oE-hL-owX" kind="relationship" relationship="viewControllers" id="TZ3-4D-ggv"/>
                         <segue destination="55D-jV-o2T" kind="relationship" relationship="viewControllers" id="BZR-2H-N8v"/>
+                        <segue destination="xtM-BR-eMq" kind="relationship" relationship="viewControllers" id="G4i-ct-6HX"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="81Q-qe-cms" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -365,13 +426,20 @@
         <image name="bijan" width="1000" height="1000"/>
         <image name="cyberDummy" width="19" height="25.333333969116211"/>
         <image name="gameboy" width="952" height="816"/>
+        <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="house" catalog="system" width="128" height="104"/>
+        <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="person" catalog="system" width="128" height="121"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="green">
             <color red="0.0" green="0.74900001287460327" blue="0.76499998569488525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -380,6 +448,9 @@
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
