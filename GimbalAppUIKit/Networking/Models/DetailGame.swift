@@ -14,7 +14,7 @@ struct DetailGame: Codable{
     let imagePath: URL?
     let website: URL?
     let rating: Double?
-    let level: Int?
+    let level: Int32?
     
     
     enum CodingKeys: String, CodingKey {
@@ -49,6 +49,6 @@ struct DetailGame: Codable{
         website = URL(string: urlWeb) ?? URL(string: "https://bijantyum.space/")!
         
         rating = try container.decode(Double.self, forKey: .rating)
-        level = try container.decode(Int.self, forKey: .level)
+        level = try container.decode(Int32.self, forKey: .level)
     }
 }

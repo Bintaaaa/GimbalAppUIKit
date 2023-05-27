@@ -8,11 +8,11 @@
 import Foundation
 
 struct DatasGameModel: Codable{
-    let id: Int
+    let id: Int32?
     let name: String?
     let released: Date?
     let imagePath: URL?
-    let ratingTop: Int?
+    let ratingTop: Int32?
     
     enum CodingKeys: String, CodingKey{
         case id
@@ -25,7 +25,7 @@ struct DatasGameModel: Codable{
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        id = try container.decode(Int.self, forKey: .id)
+        id = try container.decode(Int32.self, forKey: .id)
         
         name = try container.decode(String.self, forKey: .name)
         
@@ -39,7 +39,7 @@ struct DatasGameModel: Codable{
         
         imagePath = URL(string: path)!
         
-        ratingTop = try container.decode(Int.self, forKey: .ratingTop)
+        ratingTop = try container.decode(Int32.self, forKey: .ratingTop)
     }
     
 }

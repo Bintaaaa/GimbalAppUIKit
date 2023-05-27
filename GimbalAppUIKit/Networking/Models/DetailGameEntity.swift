@@ -16,14 +16,14 @@ class DetailGameEntity{
     let imagePath: URL?
     let website: URL?
     let rating: Double?
-    let level: Int?
+    let level: Int32?
     
     
     
     var image: UIImage?
     var state: DetailGameState = .initial
     
-    init(name: String, description: String, released: Date, imagePath: URL, website: URL, rating: Double, level: Int) {
+    init(name: String, description: String, released: Date, imagePath: URL, website: URL, rating: Double, level: Int32) {
         self.name = name
         self.description = description
         self.released = released

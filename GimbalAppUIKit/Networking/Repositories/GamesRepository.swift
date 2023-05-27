@@ -34,7 +34,7 @@ class GamesRepository{
         return gamesMapper(input: result.games)
     }
     
-    func getDetail(id: Int) async throws -> DetailGameEntity {
+    func getDetail(id: Int32) async throws -> DetailGameEntity {
         var component = URLComponents(string: "\(baseUrl)games/\(id)")!
         component.queryItems = [
             URLQueryItem(name: "key", value: apiKey)
@@ -84,7 +84,7 @@ extension GamesRepository {
         input dataGamesModel: [DatasGameModel]
     ) -> [GameEntity] {
         return dataGamesModel.map { result in
-            return GameEntity(id: result.id, title: result.name!, imagePath: result.imagePath!, level: result.ratingTop!, releaseDate: result.released!)
+            return GameEntity(id: result.id!, title: result.name!, imagePath: result.imagePath!, level: result.ratingTop!, releaseDate: result.released!)
         }
     }
     fileprivate func detailGameMapper(input detailGame: DetailGame) -> DetailGameEntity{
