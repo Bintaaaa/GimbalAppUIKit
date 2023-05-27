@@ -314,6 +314,7 @@
                         <outlet property="btnStyling" destination="lkt-8Q-Iri" id="jtf-fX-TKN"/>
                         <outlet property="descriptionDetail" destination="nNc-Pa-Rwu" id="hme-5d-QT6"/>
                         <outlet property="detailImage" destination="MZB-FW-jTl" id="C81-SI-eyI"/>
+                        <outlet property="favoriteImageVIew" destination="wGs-nw-4QA" id="9Ow-Pv-Bgb"/>
                         <outlet property="indicatorDetail" destination="j3n-fn-Ri2" id="6KR-ZW-Pzd"/>
                         <outlet property="levelGames" destination="Gsq-iu-dIL" id="28K-01-s2Z"/>
                         <outlet property="ratingDetail" destination="nNc-Pa-Rwu" id="Syl-en-6uC"/>
@@ -328,12 +329,24 @@
         <!--Favorite-->
         <scene sceneID="nnx-YO-u42">
             <objects>
-                <viewController id="xtM-BR-eMq" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavoriteTableView" id="xtM-BR-eMq" customClass="FavoriteViewController" customModule="GimbalAppUIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vyL-tN-TdR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hye-cy-laj">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="2eE-NQ-ePA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2eE-NQ-ePA" firstAttribute="trailing" secondItem="hye-cy-laj" secondAttribute="trailing" id="4rV-ud-WwN"/>
+                            <constraint firstItem="hye-cy-laj" firstAttribute="leading" secondItem="2eE-NQ-ePA" secondAttribute="leading" id="NMZ-ez-lPN"/>
+                            <constraint firstItem="hye-cy-laj" firstAttribute="top" secondItem="2eE-NQ-ePA" secondAttribute="top" id="afS-Ul-ZAx"/>
+                            <constraint firstItem="2eE-NQ-ePA" firstAttribute="bottom" secondItem="hye-cy-laj" secondAttribute="bottom" id="eyh-bh-79d"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Favorite" image="heart" catalog="system" id="9OK-tN-dGd">
                         <imageReference key="selectedImage" image="heart.fill" catalog="system" renderingMode="hierarchical">
@@ -344,6 +357,9 @@
                             </hierarchicalColors>
                         </imageReference>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="favoriteGamesTableView" destination="hye-cy-laj" id="6id-n4-UfX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1X8-WZ-eeG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

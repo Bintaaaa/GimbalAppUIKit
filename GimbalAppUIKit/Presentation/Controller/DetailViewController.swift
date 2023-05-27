@@ -8,13 +8,19 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    
+    private lazy var gameContainer: GameContainer = {
+        return GameContainer()
+    }()
+    
     @IBOutlet var descriptionDetail: UILabel!
     
+    @IBOutlet var favoriteImageVIew: UIImageView!
     @IBOutlet var starImage: UIImageView!
     @IBOutlet var ratingDetail: UILabel!
     @IBOutlet var detailImage: UIImageView!
     @IBOutlet var btnStyling: UIButton!
-    var id: Int? = nil
+    var id: Int32? = nil
     
     private var detail: DetailGameEntity?
     
@@ -28,32 +34,34 @@ class DetailViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        Task{
-            await getDetailGames()
-            if indicatorDetail.isHidden {
-                if let item = detail {
-                    ratingDetail.text = String(describing: item.rating)
-                    descriptionDetail.text = item.description
-                    titleGamesLabel.text = item.name
-                    levelGames.text = "#\(String(describing: item.level!)) Top Games"
-                    
-                    
-                    if item.state == .initial{
-                        startDownloadImage(detailGameEntity: detail!)
+            super.viewDidLoad()
+        configImage()
+        startLoading()
+            Task{
+                await getDetailGames()
+                if indicatorDetail.isHidden {
+                    if let item = detail {
+                        ratingDetail.text = String(describing: item.rating)
+                        descriptionDetail.text = item.description
+                        titleGamesLabel.text = item.name
+                        levelGames.text = "#\(String(describing: item.level!)) Top Games"
+                        if item.state == .initial{
+                            startDownloadImage(detailGameEntity: detail!)
+                        }
                     }
                 }
             }
+            
+            
         }
-        
-        
-    }
     
+   
     
     func getDetailGames() async{
         let repository = GamesRepository()
+        startLoading()
         do{
-            startLoading()
+           
             detail = try await repository.getDetail(id: id!)
             stopLoading()
         }catch{
@@ -82,10 +90,14 @@ class DetailViewController: UIViewController {
     
     func startLoading() {
         indicatorDetail.startAnimating()
+        favoriteImageVIew.isHidden = true
         indicatorDetail.isHidden = false
+        ratingDetail.isHidden = true
+        titleGamesLabel.isHidden = true
         detailImage.isHidden = true
         descriptionDetail.isHidden = true
         btnStyling.isHidden = true
+        levelGames.isHidden = true
         ratingDetail.isHidden = true
         starImage.isHidden = true
     }
@@ -94,10 +106,36 @@ class DetailViewController: UIViewController {
         indicatorDetail.stopAnimating()
         indicatorDetail.isHidden = true
         detailImage.isHidden = false
+        favoriteImageVIew.isHidden = false
+        levelGames.isHidden = false
+        titleGamesLabel.isHidden = false
         descriptionDetail.isHidden = false
         btnStyling.isHidden = false
         ratingDetail.isHidden = false
         starImage.isHidden = false
+    }
+    
+    func configImage(){
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.imageTap))
+        favoriteImageVIew.addGestureRecognizer(gesture)
+        favoriteImageVIew.isUserInteractionEnabled = true
+    }
+    
+    @objc func imageTap(sender: UITapGestureRecognizer){
+        if sender.state == .ended {
+            gameContainer.addToFavorite(id: id!, title: detail!.name!, image: detail!.imagePath!, level: detail!.level!, releeaseDate: detail!.released!){
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: "Successful", message: "New member created.", preferredStyle: .alert)
+                    
+                    alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+                        self.navigationController?.popViewController(animated: true)
+                    })
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+            
+            print("On Tap")
+        }
     }
     
     
