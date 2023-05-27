@@ -44,6 +44,8 @@ class GamesRepository{
         
         let (data, response) = try await URLSession.shared.data(for: request)
         
+        print("this data of detail \(data)")
+        
         guard (response as? HTTPURLResponse)?.statusCode == 200 else{
             fatalError("Error: Can't fetching data. \(response)")
         }

@@ -24,6 +24,8 @@ class DetailViewController: UIViewController {
     
     private var detail: DetailGameEntity?
     
+    private var isFavorite: Bool? = nil
+    
     @IBOutlet var titleGamesLabel: UILabel!
     @IBOutlet var levelGames: UILabel!
     @IBOutlet var indicatorDetail: UIActivityIndicatorView!
@@ -55,6 +57,10 @@ class DetailViewController: UIViewController {
             
         }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadIsfavorite()
+    }
    
     
     func getDetailGames() async{
@@ -115,7 +121,19 @@ class DetailViewController: UIViewController {
         starImage.isHidden = false
     }
     
+    func loadIsfavorite(){
+        gameContainer.isFavorite(id: id!){result in
+            self.isFavorite = result
+            DispatchQueue.main.async {
+                if(self.isFavorite ?? false){
+                    self.favoriteImageVIew.image = UIImage(systemName: "heart.fill")
+                }
+            }
+        }
+    }
+    
     func configImage(){
+       
         let gesture = UITapGestureRecognizer(target: self, action: #selector(self.imageTap))
         favoriteImageVIew.addGestureRecognizer(gesture)
         favoriteImageVIew.isUserInteractionEnabled = true
@@ -123,18 +141,31 @@ class DetailViewController: UIViewController {
     
     @objc func imageTap(sender: UITapGestureRecognizer){
         if sender.state == .ended {
-            gameContainer.addToFavorite(id: id!, title: detail!.name!, image: detail!.imagePath!, level: detail!.level!, releeaseDate: detail!.released!){
-                DispatchQueue.main.async {
-                    let alert = UIAlertController(title: "Successful", message: "New member created.", preferredStyle: .alert)
-                    
-                    alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
-                        self.navigationController?.popViewController(animated: true)
-                    })
-                    self.present(alert, animated: true, completion: nil)
+            if(isFavorite ?? false){
+                gameContainer.deleteFavorite(id: id!){
+                    DispatchQueue.main.async {
+                        self.favoriteImageVIew.image = UIImage(systemName: "heart")
+                        let alert = UIAlertController(title: "Deleted", message: "Favorite is deleted", preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+                            self.navigationController?.popViewController(animated: true)
+                        })
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+            }else{
+                gameContainer.addToFavorite(id: id!, title: detail!.name!, image: detail!.imagePath!, level: detail!.level!, releeaseDate: detail!.released!){
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "Successful", message: "New member created.", preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+                            self.navigationController?.popViewController(animated: true)
+                        })
+                        self.present(alert, animated: true, completion: nil)
+                       
+                    }
                 }
             }
-            
-            print("On Tap")
         }
     }
     

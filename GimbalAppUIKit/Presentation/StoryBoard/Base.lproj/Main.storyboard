@@ -314,7 +314,7 @@
                         <outlet property="btnStyling" destination="lkt-8Q-Iri" id="jtf-fX-TKN"/>
                         <outlet property="descriptionDetail" destination="nNc-Pa-Rwu" id="hme-5d-QT6"/>
                         <outlet property="detailImage" destination="MZB-FW-jTl" id="C81-SI-eyI"/>
-                        <outlet property="favoriteImageVIew" destination="wGs-nw-4QA" id="9Ow-Pv-Bgb"/>
+                        <outlet property="favoriteImageVIew" destination="wGs-nw-4QA" id="8F9-qB-nKY"/>
                         <outlet property="indicatorDetail" destination="j3n-fn-Ri2" id="6KR-ZW-Pzd"/>
                         <outlet property="levelGames" destination="Gsq-iu-dIL" id="28K-01-s2Z"/>
                         <outlet property="ratingDetail" destination="nNc-Pa-Rwu" id="Syl-en-6uC"/>

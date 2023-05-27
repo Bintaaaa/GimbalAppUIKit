@@ -86,4 +86,39 @@ class GameContainer{
             }
         }
     }
+    
+    
+    
+    func isFavorite(id: Int32, completion: @escaping(_ isFavorite: Bool) -> Void){
+        let taskContext = newTaskContext()
+        taskContext.perform {
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Gimbal")
+            fetchRequest.fetchLimit = 1
+            fetchRequest.predicate = NSPredicate(format: "id == \(id)")
+            do{
+                if let result  = try taskContext.fetch(fetchRequest).first{
+                    let isFavorite = id == result.value(forKey: "id")  as? Int32
+                    completion(isFavorite)
+                }
+            }catch let error as NSError{
+                print("Could not fetch. \(error), \(error.userInfo)")
+            }
+        }
+    }
+    
+    func deleteFavorite(id: Int32, completion: @escaping() -> Void){
+        let taskContext = newTaskContext()
+        taskContext.perform {
+          let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Gimbal")
+          fetchRequest.fetchLimit = 1
+          fetchRequest.predicate = NSPredicate(format: "id == \(id)")
+          let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+          batchDeleteRequest.resultType = .resultTypeCount
+          if let batchDeleteResult = try? taskContext.execute(batchDeleteRequest) as? NSBatchDeleteResult {
+            if batchDeleteResult.result != nil {
+              completion()
+            }
+          }
+        }
+    }
 }
