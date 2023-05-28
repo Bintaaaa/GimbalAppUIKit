@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		783BF3752A231191009E4FAF /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783BF3742A231191009E4FAF /* ProfileModel.swift */; };
 		785BFEBB2A09026A0007C617 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785BFEBA2A09026A0007C617 /* ImageDownloader.swift */; };
 		785BFEBD2A09139E0007C617 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785BFEBC2A09139E0007C617 /* DetailViewController.swift */; };
 		78676BB12A0A5A1600C6334C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78676BB02A0A5A1600C6334C /* SearchViewController.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		783BF3742A231191009E4FAF /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		785BFEBA2A09026A0007C617 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		785BFEBC2A09139E0007C617 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		78676BB02A0A5A1600C6334C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				78FCC8712A094B47000E9333 /* DetailGame.swift */,
 				78FCC8732A094C32000E9333 /* DetailGameEntity.swift */,
 				78D9F9662A22790900323D27 /* GimbalData.xcdatamodeld */,
+				783BF3742A231191009E4FAF /* ProfileModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				7877E3C22A07A2EE00EBE368 /* GameTableViewCell.swift in Sources */,
 				7877E3C92A07AF5B00EBE368 /* GamesModel.swift in Sources */,
 				78FCC8742A094C32000E9333 /* DetailGameEntity.swift in Sources */,
+				783BF3752A231191009E4FAF /* ProfileModel.swift in Sources */,
 				78D9F96A2A227AC900323D27 /* GameContainer.swift in Sources */,
 				7877E3CB2A07AF8000EBE368 /* DatasGameModel.swift in Sources */,
 				7877E3CD2A07AFF300EBE368 /* GameEntity.swift in Sources */,

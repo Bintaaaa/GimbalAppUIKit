@@ -14,18 +14,14 @@ class ProfileViewController: UIViewController {
     @IBOutlet var doneBtnStyle: UIButton!
     @IBOutlet var profileImageView: UIImageView!
     
+    @IBOutlet var descriptionLabel: UILabel!
+ 
     @IBOutlet var descriptionTextField: UITextField!
     @IBOutlet var btnEdit: UIImageView!
     
     
-    @IBAction func doneBtn(_ sender: Any) {
-    }
-    @IBAction func profileBtn(_ sender: Any) {
-        
-        guard let url = URL(string: "https://bijantyum.space/#/") else {return}
-        
-        UIApplication.shared.open(url)
-    }
+    
+    
     
     private var isTap: Bool = false
     
@@ -36,6 +32,30 @@ class ProfileViewController: UIViewController {
         configImage()
         
         profileImageView.layer.cornerRadius = profileImageView.frame.height/2
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        descriptionLabel.text = ProfileModel.desc
+    }
+    
+    @IBAction func doneBtn(_ sender: Any) {
+                if let description = descriptionTextField.text{
+            if !description.isEmpty{
+                ProfileModel.desc = description
+                descriptionLabel.text = description
+                doneBtnStyle.isHidden = true
+                descriptionTextField.isHidden = true
+                btnEdit.image = UIImage(systemName: "pencil")
+            }
+        }
+        
+    }
+    
+    @IBAction func profileBtn(_ sender: Any) {
+        
+        guard let url = URL(string: "https://bijantyum.space/#/") else {return}
+        
+        UIApplication.shared.open(url)
     }
     
     
