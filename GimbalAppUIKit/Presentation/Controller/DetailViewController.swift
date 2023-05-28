@@ -36,38 +36,38 @@ class DetailViewController: UIViewController {
     
     
     override func viewDidLoad() {
-            super.viewDidLoad()
+        super.viewDidLoad()
         configImage()
         startLoading()
-            Task{
-                await getDetailGames()
-                if indicatorDetail.isHidden {
-                    if let item = detail {
-                        ratingDetail.text = String(describing: item.rating)
-                        descriptionDetail.text = item.description
-                        titleGamesLabel.text = item.name
-                        levelGames.text = "#\(String(describing: item.level!)) Top Games"
-                        if item.state == .initial{
-                            startDownloadImage(detailGameEntity: detail!)
-                        }
+        Task{
+            await getDetailGames()
+            if indicatorDetail.isHidden {
+                if let item = detail {
+                    ratingDetail.text = String(describing: item.rating)
+                    descriptionDetail.text = item.description
+                    titleGamesLabel.text = item.name
+                    levelGames.text = "#\(String(describing: item.level!)) Top Games"
+                    if item.state == .initial{
+                        startDownloadImage(detailGameEntity: detail!)
                     }
                 }
             }
-            
-            
         }
+        
+        
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadIsfavorite()
     }
-   
+    
     
     func getDetailGames() async{
         let repository = GamesRepository()
         startLoading()
         do{
-           
+            
             detail = try await repository.getDetail(id: id!)
             stopLoading()
         }catch{
@@ -133,7 +133,7 @@ class DetailViewController: UIViewController {
     }
     
     func configImage(){
-       
+        
         let gesture = UITapGestureRecognizer(target: self, action: #selector(self.imageTap))
         favoriteImageVIew.addGestureRecognizer(gesture)
         favoriteImageVIew.isUserInteractionEnabled = true
@@ -162,7 +162,7 @@ class DetailViewController: UIViewController {
                             self.navigationController?.popViewController(animated: true)
                         })
                         self.present(alert, animated: true, completion: nil)
-                       
+                        
                     }
                 }
             }

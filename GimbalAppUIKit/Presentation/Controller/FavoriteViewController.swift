@@ -10,7 +10,7 @@ import UIKit
 class FavoriteViewController: UIViewController {
     
     private var games: [GameEntity] = []
-
+    
     @IBOutlet var favoriteGamesTableView: UITableView!
     
     private lazy var gamesContainer: GameContainer = {

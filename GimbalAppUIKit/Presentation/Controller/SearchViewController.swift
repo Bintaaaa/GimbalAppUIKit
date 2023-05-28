@@ -93,8 +93,8 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate{
 extension SearchViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if !searchText.isEmpty {
-        
-        search = searchText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+            
+            search = searchText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
             Task{
                 
                 await getGames()
@@ -111,10 +111,10 @@ extension SearchViewController: UISearchBarDelegate{
             games = try await respository.getGames(query: search)
         }catch {
             let alert = UIAlertController(title: "Error", message: "Failed to load games. Please check your internet connection and try again.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    present(alert, animated: true, completion: nil)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
             print("Error: connection failed. \(error.self)")
         }
-   
+        
     }
 }

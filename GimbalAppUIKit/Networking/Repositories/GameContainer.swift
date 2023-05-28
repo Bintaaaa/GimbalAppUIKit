@@ -82,7 +82,7 @@ class GameContainer{
                 try taskContext.save()
                 completion()
             } catch let error as NSError {
-              print("Could not save. \(error), \(error.userInfo)")
+                print("Could not save. \(error), \(error.userInfo)")
             }
         }
     }
@@ -109,16 +109,16 @@ class GameContainer{
     func deleteFavorite(id: Int32, completion: @escaping() -> Void){
         let taskContext = newTaskContext()
         taskContext.perform {
-          let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Gimbal")
-          fetchRequest.fetchLimit = 1
-          fetchRequest.predicate = NSPredicate(format: "id == \(id)")
-          let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-          batchDeleteRequest.resultType = .resultTypeCount
-          if let batchDeleteResult = try? taskContext.execute(batchDeleteRequest) as? NSBatchDeleteResult {
-            if batchDeleteResult.result != nil {
-              completion()
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Gimbal")
+            fetchRequest.fetchLimit = 1
+            fetchRequest.predicate = NSPredicate(format: "id == \(id)")
+            let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+            batchDeleteRequest.resultType = .resultTypeCount
+            if let batchDeleteResult = try? taskContext.execute(batchDeleteRequest) as? NSBatchDeleteResult {
+                if batchDeleteResult.result != nil {
+                    completion()
+                }
             }
-          }
         }
     }
 }
