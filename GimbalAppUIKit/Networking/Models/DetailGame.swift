@@ -49,6 +49,7 @@ struct DetailGame: Codable{
         website = URL(string: urlWeb) ?? URL(string: "https://bijantyum.space/")!
         
         rating = try container.decode(Double.self, forKey: .rating)
+        
         level = try container.decode(Int32.self, forKey: .level)
     }
 }

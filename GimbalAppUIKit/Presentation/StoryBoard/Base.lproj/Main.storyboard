@@ -317,6 +317,21 @@
                                     <constraint firstAttribute="width" constant="48" id="awi-pc-lw8"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZX-hJ-qad">
+                                <rect key="frame" x="16" y="16" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="VcK-15-pkK"/>
+                                    <constraint firstAttribute="width" constant="50" id="xXY-Dd-B3A"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="arrow.backward" catalog="system" symbolScale="large"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="backButton:" destination="22N-ma-Qi1" eventType="touchUpInside" id="OgK-XN-rQw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wwC-ns-IIZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -331,6 +346,7 @@
                             <constraint firstItem="nNc-Pa-Rwu" firstAttribute="leading" secondItem="wwC-ns-IIZ" secondAttribute="leading" constant="16" id="Mtx-VW-nmn"/>
                             <constraint firstItem="Gsq-iu-dIL" firstAttribute="leading" secondItem="wwC-ns-IIZ" secondAttribute="leading" constant="16" id="OT9-Lv-KEj"/>
                             <constraint firstAttribute="trailing" secondItem="wGs-nw-4QA" secondAttribute="trailing" constant="16" id="QBY-2Z-Lpw"/>
+                            <constraint firstItem="cZX-hJ-qad" firstAttribute="top" secondItem="wwC-ns-IIZ" secondAttribute="top" constant="16" id="T6p-nU-vPd"/>
                             <constraint firstItem="j3n-fn-Ri2" firstAttribute="centerX" secondItem="HYq-vt-pKJ" secondAttribute="centerX" id="TeF-aZ-LMW"/>
                             <constraint firstItem="KmX-cf-2uU" firstAttribute="top" secondItem="MZB-FW-jTl" secondAttribute="bottom" constant="16" id="X8v-tl-gQE"/>
                             <constraint firstItem="nNc-Pa-Rwu" firstAttribute="top" secondItem="j3n-fn-Ri2" secondAttribute="bottom" constant="8" id="XG7-uW-a9Q"/>
@@ -340,6 +356,7 @@
                             <constraint firstItem="wwC-ns-IIZ" firstAttribute="trailing" secondItem="lkt-8Q-Iri" secondAttribute="trailing" constant="16" id="ef2-Wa-1WM"/>
                             <constraint firstItem="lkt-8Q-Iri" firstAttribute="leading" secondItem="wwC-ns-IIZ" secondAttribute="leading" constant="16" id="hQw-zf-ujN"/>
                             <constraint firstItem="lkt-8Q-Iri" firstAttribute="top" secondItem="nNc-Pa-Rwu" secondAttribute="bottom" constant="16" id="iiv-Fd-ayD"/>
+                            <constraint firstItem="cZX-hJ-qad" firstAttribute="leading" secondItem="wwC-ns-IIZ" secondAttribute="leading" constant="16" id="kZF-xI-XXA"/>
                             <constraint firstItem="wGs-nw-4QA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KmX-cf-2uU" secondAttribute="trailing" constant="16" id="oME-dy-ndO"/>
                             <constraint firstItem="MZB-FW-jTl" firstAttribute="leading" secondItem="wwC-ns-IIZ" secondAttribute="leading" id="scf-Nb-Lkg"/>
                             <constraint firstItem="KmX-cf-2uU" firstAttribute="leading" secondItem="wwC-ns-IIZ" secondAttribute="leading" constant="16" id="v4d-0U-pyB"/>
@@ -476,6 +493,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.backward" catalog="system" width="128" height="95"/>
         <image name="bijan" width="1000" height="1000"/>
         <image name="cyberDummy" width="19" height="25.333333969116211"/>
         <image name="gameboy" width="952" height="816"/>

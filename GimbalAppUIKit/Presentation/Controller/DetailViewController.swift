@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UIGestureRecognizerDelegate {
     
     private lazy var gameContainer: GameContainer = {
         return GameContainer()
@@ -62,12 +62,16 @@ class DetailViewController: UIViewController {
         loadIsfavorite()
     }
     
+    @IBAction func backButton(_ sender: Any) {
+        let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let detailController = mainStoryBoard.instantiateViewController(withIdentifier: "Home") as! TabbarContoller
+        UIApplication.shared.keyWindow?.rootViewController = detailController
+    }
     
     func getDetailGames() async{
         let repository = GamesRepository()
         startLoading()
         do{
-            
             detail = try await repository.getDetail(id: id!)
             stopLoading()
         }catch{
@@ -151,6 +155,8 @@ class DetailViewController: UIViewController {
                             self.navigationController?.popViewController(animated: true)
                         })
                         self.present(alert, animated: true, completion: nil)
+                        self.isFavorite = false
+                       
                     }
                 }
             }else{
@@ -162,7 +168,7 @@ class DetailViewController: UIViewController {
                             self.navigationController?.popViewController(animated: true)
                         })
                         self.present(alert, animated: true, completion: nil)
-                        
+                        self.loadIsfavorite()
                     }
                 }
             }

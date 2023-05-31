@@ -76,6 +76,7 @@ class GameContainer{
                 game.setValue(id, forKey: "id")
                 game.setValue(title, forKey: "title")
                 game.setValue(image, forKey: "image")
+                game.setValue(level, forKey: "level")
                 game.setValue(releeaseDate, forKey: "releaseDate")
             }
             do{
