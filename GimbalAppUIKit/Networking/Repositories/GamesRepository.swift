@@ -7,8 +7,21 @@
 
 import Foundation
 
+private var apiKey: String{
+    get{
+        guard let filePath = Bundle.main.path(forResource: "Info", ofType: "plist") else{
+            fatalError("Couldn't find file 'TMDB-Info.plist'.")
+        }
+        let plist = NSDictionary(contentsOfFile: filePath)
+        
+        guard let value = plist?.object(forKey: "API_KEY") as? String else{
+            fatalError("Couldn't find value APiKey.")
+        }
+        return value
+    }
+}
+
 class GamesRepository{
-    let apiKey = "be6d699168dd40459ecb7fb37ea812fa"
     let baseUrl = "https://api.rawg.io/api/"
     
     func getGames() async throws -> [GameEntity] {

@@ -14,8 +14,8 @@
             filePath = "GimbalAppUIKit/Networking/Repositories/GamesRepository.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "getGames(query:)"
             landmarkType = "7">
          </BreakpointContent>
